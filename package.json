@@ -1,7 +1,13 @@
 {
-  "name": "Demo",
+  "name": "demo",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Alfred.xin <haomin.working@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./script.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
