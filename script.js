@@ -104,3 +104,88 @@
 //     console.log("newCloneUser:", newCloneUser);
 // }
 
+{
+    console.clear();
+    const obj = {
+        name: "Alfred",
+    }
+    const newObj = {...obj, name: "lily"};
+    console.log("newObj:", newObj);
+    const {name: englishName} = newObj;
+    console.log("englishName:", englishName);
+}
+
+{
+    /**
+     * 原型链
+     * 在这个例子中user是newUser的原型链, newUser可以拥有user的所有元素属性, 同时也可以创造属于自己的元素属性并且对原型user不产生影响
+     */
+    console.clear();
+    const user = {
+        name: "alfred",
+        profile: {
+            address: "Toowong",
+            email: "gmail.com",
+        }
+    }
+    const newUser = Object.create(user);
+    console.log("user:", user);
+    console.log("newUser:", newUser);
+    console.log("user:", user);
+    console.log("newUser:",  newUser);
+}
+
+{
+    /**
+     * 用Object.hasOwn() / 实例.hasOwnProperty("属性")检测当前的属性是不是该Object的原型
+     * 判断a是不是b的protoType: a.isPrototypeOf(b)
+     * @Question: profile里面的属性如何进行判断
+     */
+    console.clear();
+    const user = {
+        name: "alfred",
+        profile: {
+            address: "Toowong",
+            email: "gmail.com",
+        }
+    }
+    const newUser = Object.create(user);
+    console.log("isPrototype:", Object.hasOwn(user, "name"));
+    console.log(user.hasOwnProperty("profile"));
+    console.log(user.isPrototypeOf(newUser));
+}
+
+{
+    /**
+     * Object.isExtensible(obj): 用来查看当前的object是否可以进行扩展
+     * Object.preventExtensions(obj): 阻止当前的object进行拓展不阻止删除和更改, 并且该操作不能够被撤销
+     */
+    console.clear();
+    const user = {
+        name: "alfred",
+    }
+    Object.preventExtensions(user);
+    console.log("extensionResult:", Object.isExtensible(user));
+}
+
+{
+    /**
+     * Object.seal(obj): 使当前obj不可以进行拓展和删除但是可以进行更改
+     */
+    console.clear();
+    const user = {
+        name: "alfred",
+    }
+    Object.seal(user);
+}
+
+{
+    /**
+     * Object.freeze(obj): 使当前obj不可以进行拓展和更改还有删除
+     */
+    console.clear();
+    const user = {
+        name: "alfred",
+    }
+    Object.freeze(user);
+}
