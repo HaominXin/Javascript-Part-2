@@ -189,3 +189,43 @@
     }
     Object.freeze(user);
 }
+
+{
+    /**
+     * Array.from(): 将字符串转换为数组并且是按char进行拆分, 弊端是字符串中有几个空格将会拆分几个空格
+     */
+    console.clear();
+    const name = "alfred    Xin";
+    const arrName = Array.from(name);
+    console.log("arrName:", arrName);
+    const newArrName = arrName.filter(element => element != " ");
+    console.log("newArrName:", newArrName);
+
+    /**
+     * Array.join()合并
+     */
+    const combineArr = arrName.join("");
+    console.log("combineArr:", combineArr);
+}
+
+{
+    console.clear();
+    const arr = ['a', 'b', 'c'];
+    const arr2 = ['d', 'e', 'f'];
+    const combineArr = arr.concat(arr2);
+    console.log("combineArr:", combineArr);
+}
+
+{
+    /**
+     * Object.keys(obj) / Object.values(obj)可以将obj的keys和values抽离出来, 并且分别组成了新的array
+     */
+    console.clear();
+    const obj = {
+        name: "alfred",
+        address: "Toowong",
+    }
+    const keys = Object.keys(obj);
+    const values = Object.values(obj);
+    console.log(keys, values);
+}
