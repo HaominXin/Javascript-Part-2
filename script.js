@@ -55,9 +55,6 @@
     console.log("source:", source);
     console.log("combineTarget:", combineTarget);
     console.log("returnTarget:", returnTarget);
-
-    const obj = new Object({name: "alfred"});
-    console.log("obj:")
 }
 
 {
